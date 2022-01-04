@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &337449962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337449963}
+  m_Layer: 0
+  m_Name: Blaster And Laser Pool Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &337449963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337449962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.044, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6557848082966479426}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2510410183133996837
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +100,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5809179566793499747}
   - component: {fileID: 2640732837736480076}
+  - component: {fileID: 1807758726}
+  - component: {fileID: 8215434826581966395}
+  - component: {fileID: 3481839503501174377}
+  - component: {fileID: 6468865603212902491}
+  - component: {fileID: 2595582958835861877}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -98,7 +133,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3928882123317801548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f29c1850bdda02f449907ec661269644, type: 3}
   m_Name: 
@@ -114,6 +149,96 @@ MonoBehaviour:
   - {fileID: 3327377492249465678}
   - {fileID: 7740618368942288869}
   shootTimerTreshold: 0.2
+--- !u!114 &1807758726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928882123317801548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 7577808435374126068, guid: 175ebd610ee1d694ba052edc2861b925, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 106
+  projectileSpawnPoint: {fileID: 337449963}
+  shootWaitTime: 0.2
+  isEnemy: 0
+--- !u!114 &8215434826581966395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928882123317801548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 667221844200277262, guid: db957c7ad4dfbb541a0e07b1f8d88cf5, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 107
+  projectileSpawnPoint: {fileID: 337449963}
+  shootWaitTime: 0.2
+  isEnemy: 0
+--- !u!114 &3481839503501174377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928882123317801548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1039752766510175038, guid: cd59b634c2cfe5a4a8a5d2a274cb35a5, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 108
+  projectileSpawnPoint: {fileID: 337449963}
+  shootWaitTime: 0.2
+  isEnemy: 0
+--- !u!114 &6468865603212902491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928882123317801548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1401943850530710318, guid: 6feb4db8ac0e32f46a1f67aaad9cdfac, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 111
+  projectileSpawnPoint: {fileID: 337449963}
+  shootWaitTime: 0.2
+  isEnemy: 0
+--- !u!114 &2595582958835861877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928882123317801548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1081162453552407301, guid: b0193e674e80720418ccae114a53b5df, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 112
+  projectileSpawnPoint: {fileID: 337449963}
+  shootWaitTime: 0.2
+  isEnemy: 0
 --- !u!1 &6045965314016991448
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +795,7 @@ Transform:
   - {fileID: 7034952103301383758}
   - {fileID: 3327377492249465678}
   - {fileID: 7740618368942288869}
+  - {fileID: 337449963}
   m_Father: {fileID: 6045965315334615556}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -768,14 +894,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d063803dff52f84eb81cbfac55a7355, type: 3}
---- !u!4 &6050424156966573844 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4778328494118342, guid: 9d063803dff52f84eb81cbfac55a7355, type: 3}
-  m_PrefabInstance: {fileID: 6045965314060731090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &5847290709340672788 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198768066700317126, guid: 9d063803dff52f84eb81cbfac55a7355, type: 3}
+  m_PrefabInstance: {fileID: 6045965314060731090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6050424156966573844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4778328494118342, guid: 9d063803dff52f84eb81cbfac55a7355, type: 3}
   m_PrefabInstance: {fileID: 6045965314060731090}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6045965314361723531

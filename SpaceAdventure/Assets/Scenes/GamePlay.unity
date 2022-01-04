@@ -336,29 +336,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1807758724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3928882123317801548, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
-  m_PrefabInstance: {fileID: 6045965314078391101}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1807758727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807758724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 358422878753532769, guid: 2ee1bbb99f90e1140a98a4799f3f7594, type: 3}
-  projectilePool: []
-  keyToPressToShoot: 106
-  projectileSpawnPoint: {fileID: 6045965314078391102}
-  shootWaitTime: 0.2
-  isEnemy: 0
 --- !u!1001 &6045965314078391101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,10 +343,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2640732837736480076, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6045965315334615556, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -380,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6045965315334615556, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -22.3
       objectReference: {fileID: 0}
     - target: {fileID: 6045965315334615556, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -420,8 +393,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
---- !u!4 &6045965314078391102 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7034952103301383758, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
-  m_PrefabInstance: {fileID: 6045965314078391101}
-  m_PrefabAsset: {fileID: 0}
