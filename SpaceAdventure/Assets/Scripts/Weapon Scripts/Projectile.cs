@@ -16,7 +16,10 @@ public class Projectile : MonoBehaviour
     private void Start() 
     {
         _projectileDamage = (int)Random.Range(minDamage, maxDamage);
+    }
 
+    private void OnEnable()
+    {
         if(spawnSound)
             AudioSource.PlayClipAtPoint(spawnSound, new Vector3(0f, 6f, 0f));
     }
