@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 3327120613894892920}
   - component: {fileID: 3327120613894892921}
   - component: {fileID: 203759178}
+  - component: {fileID: 4627394851173685966}
+  - component: {fileID: 203759183}
+  - component: {fileID: 203759179}
   m_Layer: 8
   m_Name: AB06
   m_TagString: Enemy
@@ -142,7 +145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3327120613894892922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc1b32ef743b69b47a834476d6306797, type: 3}
   m_Name: 
@@ -152,6 +155,66 @@ MonoBehaviour:
   moveSpeed: 10
   horizontal_MovementTreshold: 10
   vertical_MovementTreshold: 6
+--- !u!114 &4627394851173685966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327120613894892922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163f9a938a14d914b8f1ad39a5631e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min_X: -50
+  max_X: 50
+  min_Y: 0
+  max_Y: 25
+  moveSpeed: 8
+--- !u!114 &203759183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327120613894892922}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c2126af5223fd4db6c582eaa63768c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  moveSpeed: 8
+  moveRandomly: 1
+--- !u!114 &203759179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327120613894892922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 2778893165435167165, guid: d92224cecd9da41438c27f42e6d3aecc, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 0
+  projectileSpawnPoint: {fileID: 3215861592567154133}
+  shootWaitTime: 0.2
+  isEnemy: 1
 --- !u!1 &4317487329130000711
 GameObject:
   m_ObjectHideFlags: 0

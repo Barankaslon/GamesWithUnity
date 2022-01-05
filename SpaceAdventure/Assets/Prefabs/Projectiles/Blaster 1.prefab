@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e2c5b63b3e4cb4b83bcfd2a2dc7b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: -30
   spawnSound: {fileID: 8300000, guid: fe96c61df3d839247847fb6341ff62fc, type: 3}
   boomEffect: {fileID: 0}
   destroySound: {fileID: 0}

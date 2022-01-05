@@ -21,6 +21,7 @@ public class WeaponManagerPool : MonoBehaviour
         if(isEnemy)
         {
             projectileHolder = GameObject.FindWithTag(TagManager.ENEMY_PROJECTILE_HOLDER_TAG);
+            ResetShootingTimer();
         }
         else
         {
@@ -95,7 +96,11 @@ public class WeaponManagerPool : MonoBehaviour
 
     void HandleEnemyShooting()
     {
-
+        if(!isEnemy || !_canShoot)
+            return;
+        
+        ResetShootingTimer();
+        GetObjectFromPoolOrSpawnANewOne();
     }
 
 }
