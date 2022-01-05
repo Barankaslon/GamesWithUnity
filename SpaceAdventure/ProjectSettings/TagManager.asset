@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - EnemyProjectileHolder
   - PlayerProjectileHolder
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - UI
   - EnemyProjectile
   - PlayerProjectile
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - PlayerBounds
   - 
   - 
   - 
@@ -43,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 1333109427
     locked: 0
   - name: Player
     uniqueID: 3696166447
