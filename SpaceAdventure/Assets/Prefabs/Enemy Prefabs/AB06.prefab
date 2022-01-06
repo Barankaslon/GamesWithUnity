@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4627394851173685966}
   - component: {fileID: 203759183}
   - component: {fileID: 203759179}
+  - component: {fileID: 6582778231729460689}
   m_Layer: 8
   m_Name: AB06
   m_TagString: Enemy
@@ -213,7 +214,25 @@ MonoBehaviour:
   projectilePool: []
   keyToPressToShoot: 0
   projectileSpawnPoint: {fileID: 3215861592567154133}
-  shootWaitTime: 0.2
+  shootWaitTime: 1
+  isEnemy: 1
+--- !u!114 &6582778231729460689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327120613894892922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746268e653415174eb5e65e704bb3fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 2778893165435167165, guid: d92224cecd9da41438c27f42e6d3aecc, type: 3}
+  projectilePool: []
+  keyToPressToShoot: 0
+  projectileSpawnPoint: {fileID: 7766009076245512091}
+  shootWaitTime: 1
   isEnemy: 1
 --- !u!1 &4317487329130000711
 GameObject:
