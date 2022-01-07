@@ -313,8 +313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 6855030989769656683}
   health: 100
-  hitEffect: {fileID: 0}
-  destroyEffect: {fileID: 0}
+  hitEffect: {fileID: 1705349776823396, guid: 541b040e168f245cf9f2f510780440fd, type: 3}
+  destroyEffect: {fileID: 1762303578077224, guid: 9685a397aac114db9889c2a983af24e6, type: 3}
 --- !u!1 &6855030989769656683
 GameObject:
   m_ObjectHideFlags: 0

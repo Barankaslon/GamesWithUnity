@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag(TagManager.PLAYER_TAG))
         {
-            Debug.Log("Player Hit");
+            collision.GetComponent<PlayerHealth>().TakeDamage(_projectileDamage);
         }
 
         if(collision.CompareTag(TagManager.ENEMY_TAG) || collision.CompareTag(TagManager.METEOR_TAG))
