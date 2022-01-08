@@ -649,26 +649,6 @@ Transform:
   m_Father: {fileID: 1505364004}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1064609518 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6045965315334615557, guid: 617a7fce7fe38c648bb721ff8afc8fa1, type: 3}
-  m_PrefabInstance: {fileID: 6045965314078391101}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1064609519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064609518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fcea26e07a3e7446be4b93cb32f7405, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMaxHealth: 100
-  playerExplosionFX: {fileID: 1493211344075380, guid: d050d6f0895e64926bcad437c907f1a4, type: 3}
-  playerDamageFX: {fileID: 1929564232946276, guid: ad5d54c9542814801ab5b2860b43e093, type: 3}
 --- !u!1 &1104004824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1025,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 656145847058004680, guid: 1847ab05f3004d347bf5480cbd1dfc67, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5406954107627878693, guid: 1847ab05f3004d347bf5480cbd1dfc67, type: 3}
       propertyPath: m_Name
       value: Blaster 2 Collectable
@@ -1059,7 +1043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5572701048893407575, guid: 1847ab05f3004d347bf5480cbd1dfc67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.04
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: 5572701048893407575, guid: 1847ab05f3004d347bf5480cbd1dfc67, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1106,13 +1090,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3402048840336886893, guid: 0674eeef24fa22a4da81be6bfa9b0808, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4480570882603363254, guid: 0674eeef24fa22a4da81be6bfa9b0808, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4480570882603363254, guid: 0674eeef24fa22a4da81be6bfa9b0808, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.79
+      value: -10.67
       objectReference: {fileID: 0}
     - target: {fileID: 4480570882603363254, guid: 0674eeef24fa22a4da81be6bfa9b0808, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1163,6 +1151,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2737499288804523118, guid: 147d230f3ab97074f8ffcf750bbbff23, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5047303382897574241, guid: 147d230f3ab97074f8ffcf750bbbff23, type: 3}
       propertyPath: m_Name
       value: Rocket Collectable
@@ -1177,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047303382897574253, guid: 147d230f3ab97074f8ffcf750bbbff23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.63
+      value: -25.08
       objectReference: {fileID: 0}
     - target: {fileID: 5047303382897574253, guid: 147d230f3ab97074f8ffcf750bbbff23, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1281,13 +1273,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 311269769228134668, guid: 96c5109115bd0074ca6a5758c64590c4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7036215986726545045, guid: 96c5109115bd0074ca6a5758c64590c4, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7036215986726545045, guid: 96c5109115bd0074ca6a5758c64590c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 7036215986726545045, guid: 96c5109115bd0074ca6a5758c64590c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1342,6 +1338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5332427526989872446, guid: d7cc3b3c88b33a7479c5f7b4cbf6c053, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9103115378467684403, guid: d7cc3b3c88b33a7479c5f7b4cbf6c053, type: 3}
       propertyPath: m_Name
       value: Misile Collectable
@@ -1356,7 +1356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103115378467684407, guid: d7cc3b3c88b33a7479c5f7b4cbf6c053, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.94
+      value: -17.65
       objectReference: {fileID: 0}
     - target: {fileID: 9103115378467684407, guid: d7cc3b3c88b33a7479c5f7b4cbf6c053, type: 3}
       propertyPath: m_LocalPosition.y
