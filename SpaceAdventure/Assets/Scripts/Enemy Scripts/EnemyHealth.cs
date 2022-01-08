@@ -11,6 +11,13 @@ public class EnemyHealth : MonoBehaviour
 
     private Vector3 healthBarScale;
 
+    private DropCollectable dropCollectable;
+
+    private void Awake()
+    {
+        dropCollectable = GetComponent<DropCollectable>();
+    }
+
     public void TakeDamage(float damageAmount, float damageResistance)
     {
         damageAmount -= damageResistance;
@@ -22,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
 
             SoundManager.instance.PlayDestroySound();
+
+            dropCollectable.CheckToSpawnCollectable();
 
             Destroy(gameObject);
         }

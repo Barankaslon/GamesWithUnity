@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4367082788794863065}
   - component: {fileID: 1181588278}
   - component: {fileID: 1371513797}
+  - component: {fileID: 5594827540124452461}
   m_Layer: 8
   m_Name: Meteor 2
   m_TagString: Meteor
@@ -625,3 +626,21 @@ MonoBehaviour:
   health: 100
   hitEffect: {fileID: 1319861625924068, guid: 494f5858d0b1f415ea3401e84732aa08, type: 3}
   destroyEffect: {fileID: 1519377103190442, guid: 0579293ac60a84b4b90e9ac25c93b30e, type: 3}
+--- !u!114 &5594827540124452461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367082788794863066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f599b30b7dbc1a4d845dd4f7bca03aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colletables:
+  - {fileID: 8945046659359223911, guid: 96c5109115bd0074ca6a5758c64590c4, type: 3}
+  - {fileID: 5406954107627878693, guid: 1847ab05f3004d347bf5480cbd1dfc67, type: 3}
+  - {fileID: 4480570882603363258, guid: 0674eeef24fa22a4da81be6bfa9b0808, type: 3}
+  - {fileID: 9103115378467684403, guid: d7cc3b3c88b33a7479c5f7b4cbf6c053, type: 3}
+  - {fileID: 5047303382897574241, guid: 147d230f3ab97074f8ffcf750bbbff23, type: 3}

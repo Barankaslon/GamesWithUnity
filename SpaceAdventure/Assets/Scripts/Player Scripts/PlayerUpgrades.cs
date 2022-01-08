@@ -18,7 +18,8 @@ public class PlayerUpgrades : MonoBehaviour
     {
         if(collision.CompareTag(TagManager.COLLECTABLE_TAG))
         {
-            collectable = collectable.GetComponent<Collectable>();
+            collectable = collision.GetComponent<Collectable>();
+
             if(collectable.type == CollectableType.Blaster1)
             {
                 weaponUpgrade.ActivateWeapon(0);
