@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4589945406856405645}
   - component: {fileID: 1837875628568310077}
+  - component: {fileID: -2158885376796428228}
+  - component: {fileID: -4184303608121757731}
   m_Layer: 0
   m_Name: Meteor 4
   m_TagString: Untagged
@@ -82,3 +84,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2158885376796428228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833414239330736007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb148b8039160e24688a68e298996f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 10
+  maxSpeed: 30
+  minRotationSpeed: 8
+  maxRotationSpeed: 20
+  moveDown: 0
+--- !u!114 &-4184303608121757731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833414239330736007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6479c5856728d4a8e8a046570aea10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 10
