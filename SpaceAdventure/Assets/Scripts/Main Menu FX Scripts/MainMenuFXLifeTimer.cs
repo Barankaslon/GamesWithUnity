@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenuFXLifeTimer : MonoBehaviour
 {
-    [SerializeField] private float timer = 20f;
+    [SerializeField] private float timer = 5f;
 
     private void OnEnable()
     {
