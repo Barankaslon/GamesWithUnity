@@ -6,8 +6,8 @@ public static class Settings
 {
 
     //Player Animation Parameters
-    public static int xInput;
-    public static int yInput;
+    public static int inputX;
+    public static int inputY;
     public static int isWalking;
     public static int isRunning;
     public static int toolEffect;
@@ -39,8 +39,8 @@ public static class Settings
     //Static Constructor
     static Settings()
     {
-        xInput = Animator.StringToHash("xInput");
-        yInput = Animator.StringToHash("yInput");
+        inputX = Animator.StringToHash("inputX");
+        inputX = Animator.StringToHash("inputY");
         isWalking = Animator.StringToHash("isWalking");
         isRunning = Animator.StringToHash("isRunning");
         toolEffect = Animator.StringToHash("toolEffect");
