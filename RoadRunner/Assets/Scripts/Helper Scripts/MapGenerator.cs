@@ -66,7 +66,7 @@ public class MapGenerator : MonoBehaviour
                                     last_Pos_Of_Bottom_Far_land_F2, last_Pos_Of_Bottom_Far_land_F3,
                                     last_Pos_Of_Bottom_Far_land_F4, last_Pos_Of_Bottom_Far_land_F5;
 
-    [HideInInspector] public int last_Order_Of_Road_Tile, last_Order_Of_Top_Near_Grass, last_Order_Of_Top_Far_Grass,
+    [HideInInspector] public int last_Order_Of_Road, last_Order_Of_Top_Near_Grass, last_Order_Of_Top_Far_Grass,
                                     last_Order_Of_Bottom_Near_Grass, last_Order_Of_Bottom_Far_land_F1, 
                                     last_Order_Of_Bottom_Far_land_F2, last_Order_Of_Bottom_Far_land_F3,
                                     last_Order_Of_Bottom_Far_land_F4, last_Order_Of_Bottom_Far_land_F5;
@@ -81,7 +81,7 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
-        
+        Initialize();
     }
 
     void MakeInstance()
@@ -93,6 +93,51 @@ public class MapGenerator : MonoBehaviour
         else if(instance != null)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Initialize()
+    {
+        InitializePlatform(roadPrefab, ref last_Pos_Of_Road_Tile, roadPrefab.transform.position,
+                            start_Road_Tile, road_Holder, ref road_Tiles, ref last_Order_Of_Road, new Vector3(1.5f, 0f, 0f));
+    }
+
+    void InitializePlatform(GameObject prefab, ref Vector3 last_Pos, 
+                            Vector3 last_Pos_Of_Tile, int amountTile, 
+                            GameObject holder, ref List<GameObject> list_Tile,
+                            ref int last_Order, Vector3 offset)
+    {
+        int orderInLayer = 0;
+        last_Pos = last_Pos_Of_Tile;
+
+        for(int i = 0; i < amountTile; i++)
+        {
+            GameObject clone = Instantiate (prefab, last_Pos, prefab.transform.rotation) as GameObject;
+            clone.GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
+
+            if(clone.tag == TagManager.TOP_NEAR_GRASS)
+            {
+
+            }
+            else if(clone.tag == TagManager.BOTTOM_NEAR_GRASS)
+            {
+
+            }
+            else if(clone.tag == TagManager.BOTTOM_FAR_LAND_2)
+            {
+
+            }
+            else if(clone.tag == TagManager.TOP_NEAR_GRASS)
+            {
+
+            }
+
+            clone.transform.SetParent(holder.transform);
+            list_Tile.Add(clone);
+
+            orderInLayer += 1;
+            last_Order = orderInLayer;
+            last_Pos += offset;
         }
     }
 }
