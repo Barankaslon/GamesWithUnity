@@ -100,6 +100,19 @@ public class MapGenerator : MonoBehaviour
     {
         InitializePlatform(roadPrefab, ref last_Pos_Of_Road_Tile, roadPrefab.transform.position,
                             start_Road_Tile, road_Holder, ref road_Tiles, ref last_Order_Of_Road, new Vector3(1.5f, 0f, 0f));
+
+        InitializePlatform(grass_Prefab, ref last_Pos_Of_Top_Near_Grass, 
+                            grass_Prefab.transform.position, start_Grass_Tile, 
+                            top_Near_Side_Walk_Holder, ref top_Near_Grass_Tiles,
+                            ref last_Order_Of_Top_Near_Grass, new Vector3(1.2f, 0f, 0f));
+        
+        InitializePlatform(groundPrefab_3, ref last_Pos_Of_Top_Far_Grass, groundPrefab_3.transform.position,
+                            start_Ground3_Tile, top_Far_Side_Walk_Holder, ref top_Far_Grass_Tiles,
+                            ref last_Order_Of_Top_Far_Grass, new Vector3(4.8f, 0f, 0f));
+        
+        InitializePlatform(grass_Bottom_Prefab, ref last_Pos_Of_Bottom_Near_Grass, new Vector3(2.0f, grass_Bottom_Prefab.transform.position.y, 0f),
+                            start_Grass_Tile, bottom_Near_Side_Walk_Holder, ref bottom_Near_Grass_Tiles,
+                            ref last_Order_Of_Bottom_Near_Grass, new Vector3(1.2f, 0f, 0f));
     }
 
     void InitializePlatform(GameObject prefab, ref Vector3 last_Pos, 
@@ -117,19 +130,26 @@ public class MapGenerator : MonoBehaviour
 
             if(clone.tag == TagManager.TOP_NEAR_GRASS)
             {
-
+                SetNearScene(big_Grass_Prefab, ref clone, ref orderInLayer, 
+                            pos_For_Top_Big_Grass, pos_For_Top_Tree_1, 
+                            pos_For_Top_Tree_2, pos_For_Top_Tree_3);
             }
             else if(clone.tag == TagManager.BOTTOM_NEAR_GRASS)
             {
-
+                SetNearScene(big_Grass_Bottom_Prefab, ref clone, ref orderInLayer, 
+                                pos_For_Bottom_Big_Grass, pos_For_Bottom_Tree1, 
+                                pos_For_Bottom_Tree2, pos_For_Bottom_Tree3);
             }
             else if(clone.tag == TagManager.BOTTOM_FAR_LAND_2)
             {
-
+                if(orderInLayer == 5)
+                {
+                    CreateTreeOrGround(big_Tree_Prefab, ref clone, new Vector3(-0.57f, -1.34f, 0f));
+                }
             }
-            else if(clone.tag == TagManager.TOP_NEAR_GRASS)
+            else if(clone.tag == TagManager.TOP_FAR_GRASS)
             {
-
+                CreateGround(ref clone, ref orderInLayer);
             }
 
             clone.transform.SetParent(holder.transform);
@@ -139,5 +159,107 @@ public class MapGenerator : MonoBehaviour
             last_Order = orderInLayer;
             last_Pos += offset;
         }
+    }
+
+    void CreateScene(GameObject bigGrassPrefab, ref GameObject tileClone, int orderInLayer)
+    {
+        GameObject clone = Instantiate(big_Grass_Prefab, tileClone.transform.position, big_Grass_Prefab.transform.rotation) as GameObject;
+
+        clone.GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
+        clone.transform.SetParent(tileClone.transform);
+        clone.transform.localPosition  = new Vector3(-0.183f, 0.106f, 0f);
+
+        CreateTreeOrGround(treePrefab_1, ref clone, new Vector3(0f, 1.52f, 0f));
+
+        tileClone.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    void CreateTreeOrGround(GameObject prefab, ref GameObject tileClone, Vector3 localPos)
+    {
+        GameObject clone = Instantiate(prefab, tileClone.transform.position, prefab.transform.rotation) as GameObject;
+
+        SpriteRenderer tileCloneRenderer = tileClone.GetComponent<SpriteRenderer>();
+        SpriteRenderer cloneRenderer = clone.GetComponent<SpriteRenderer>();
+
+        cloneRenderer.sortingOrder = tileCloneRenderer.sortingOrder;
+        clone.transform.SetParent(tileClone.transform);
+        clone.transform.localPosition = localPos;
+
+        if(prefab == groundPrefab_1 || prefab == groundPrefab_2 || prefab == groundPrefab_4)
+        {
+            tileCloneRenderer.enabled = false;
+        }
+    }
+
+    void CreateGround(ref GameObject clone, ref int orderInlayer)
+    {
+        for (int i = 0; i < pos_For_Top_Ground_1.Length; i++)
+        {
+            if(orderInlayer == pos_For_Top_Ground_1[i])
+            {
+                CreateTreeOrGround(groundPrefab_1, ref clone, Vector3.zero);
+                break;
+            }
+        }
+
+        for (int i = 0; i < pos_For_Top_Ground_2.Length; i++)
+        {
+            if(orderInlayer == pos_For_Top_Ground_2[i])
+            {
+                CreateTreeOrGround(groundPrefab_2, ref clone, Vector3.zero);
+                break;
+            }
+        }
+
+        for (int i = 0; i < pos_For_Top_Ground_4.Length; i++)
+        {
+            if(orderInlayer == pos_For_Top_Ground_4[i])
+            {
+                CreateTreeOrGround(groundPrefab_4, ref clone, Vector3.zero);
+                break;
+            }
+        }
+    }
+
+    void SetNearScene(GameObject bigGrassPrefab, ref GameObject clone, ref int orderInLayer, 
+                        int[] pos_For_BigGrass, int[] pos_For_Tree1, 
+                        int[] pos_For_Tree2, int[] pos_For_Tree3)
+    {
+        for(int i = 0; i < pos_For_BigGrass.Length; i++)
+        {
+            if(orderInLayer == pos_For_BigGrass[i])
+            {
+                CreateScene(bigGrassPrefab, ref clone,orderInLayer);
+                break;
+            }
+        }
+
+        for(int i = 0; i < pos_For_Tree1.Length; i++)
+        {
+            if(orderInLayer == pos_For_Tree1[i])
+            {
+                CreateTreeOrGround(treePrefab_1, ref clone, new Vector3(0f, 1.15f, 0f));
+                break;
+            }
+        }
+
+        for(int i = 0; i < pos_For_Tree2.Length; i++)
+        {
+            if(orderInLayer == pos_For_Tree2[i])
+            {
+                CreateTreeOrGround(treePrefab_2, ref clone, new Vector3(0f, 1.15f, 0f));
+                break;
+            }
+        }
+        
+        for(int i = 0; i < pos_For_Tree3.Length; i++)
+        {
+            if(orderInLayer == pos_For_Tree3[i])
+            {
+                CreateTreeOrGround(treePrefab_3, ref clone, new Vector3(0f, 1.15f, 0f));
+                break;
+            }
+        }
+
     }
 }
