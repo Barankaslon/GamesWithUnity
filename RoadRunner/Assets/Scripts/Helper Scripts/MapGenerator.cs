@@ -41,13 +41,13 @@ public class MapGenerator : MonoBehaviour
     public int [] pos_For_Top_Tree_3;
 
     //positions for road tile on road  from 0 to startRoadTile
-    public int [] pos_For_Road_Tile_1;
+    public int pos_For_Road_Tile_1;
 
     //positions for road tile on road  from 0 to startRoadTile
-    public int [] pos_For_Road_Tile_2;
+    public int pos_For_Road_Tile_2;
 
     //positions for road tile on road  from 0 to startRoadTile
-    public int [] pos_For_Road_Tile_3;
+    public int pos_For_Road_Tile_3;
 
     //positions for big grass with tree on bottom near grass from 0 to startGrassTile
     public int [] pos_For_Bottom_Big_Grass;
