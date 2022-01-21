@@ -17,7 +17,9 @@ public class MapGenerator : MonoBehaviour
     public int start_Road_Tile, start_Grass_Tile, start_Ground3_Tile, start_Land_Tile;  //initialization number of (road, grass, ground, land) tiles
 
     public List<GameObject> road_Tiles, top_Near_Grass_Tiles, top_Far_Grass_Tiles, bottom_Near_Grass_Tiles, 
-                            bottom_Far_Land_F1_Tiles, bottom_Far_Land_F2_Tiles, bottom_Far_Land_F3_Tiles, bottom_Far_Land_F4_Tiles, bottom_Far_Land_F5_Tiles;
+                            bottom_Far_Land_F1_Tiles, bottom_Far_Land_F2_Tiles, 
+                            bottom_Far_Land_F3_Tiles, bottom_Far_Land_F4_Tiles, 
+                            bottom_Far_Land_F5_Tiles;
 
     //positions for ground1 on top from 0 to startGround3Tile
     public int [] pos_For_Top_Ground_1;
@@ -113,6 +115,8 @@ public class MapGenerator : MonoBehaviour
         InitializePlatform(grass_Bottom_Prefab, ref last_Pos_Of_Bottom_Near_Grass, new Vector3(2.0f, grass_Bottom_Prefab.transform.position.y, 0f),
                             start_Grass_Tile, bottom_Near_Side_Walk_Holder, ref bottom_Near_Grass_Tiles,
                             ref last_Order_Of_Bottom_Near_Grass, new Vector3(1.2f, 0f, 0f));
+
+        InitializeBottomFarLand();
     }
 
     void InitializePlatform(GameObject prefab, ref Vector3 last_Pos, 
@@ -163,7 +167,7 @@ public class MapGenerator : MonoBehaviour
 
     void CreateScene(GameObject bigGrassPrefab, ref GameObject tileClone, int orderInLayer)
     {
-        GameObject clone = Instantiate(big_Grass_Prefab, tileClone.transform.position, big_Grass_Prefab.transform.rotation) as GameObject;
+        GameObject clone = Instantiate(bigGrassPrefab, tileClone.transform.position, big_Grass_Prefab.transform.rotation) as GameObject;
 
         clone.GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
         clone.transform.SetParent(tileClone.transform);
@@ -229,7 +233,7 @@ public class MapGenerator : MonoBehaviour
         {
             if(orderInLayer == pos_For_BigGrass[i])
             {
-                CreateScene(bigGrassPrefab, ref clone,orderInLayer);
+                CreateScene(bigGrassPrefab, ref clone, orderInLayer);
                 break;
             }
         }
@@ -261,5 +265,28 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
+    }
+
+    void InitializeBottomFarLand()
+    {
+        InitializePlatform(land_Prefab_1, ref last_Pos_Of_Bottom_Far_land_F1, land_Prefab_1.transform.position,
+                            start_Land_Tile, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F1_Tiles,
+                            ref last_Order_Of_Bottom_Far_land_F1, new Vector3(1.6f, 0f, 0f));
+
+        InitializePlatform(land_Prefab_2, ref last_Pos_Of_Bottom_Far_land_F2, land_Prefab_2.transform.position,
+                            start_Land_Tile - 7, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F2_Tiles,
+                            ref last_Order_Of_Bottom_Far_land_F2, new Vector3(1.6f, 0f, 0f));
+
+        InitializePlatform(land_Prefab_3, ref last_Pos_Of_Bottom_Far_land_F3, land_Prefab_3.transform.position,
+                            start_Land_Tile - 4, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F3_Tiles,
+                            ref last_Order_Of_Bottom_Far_land_F3, new Vector3(1.6f, 0f, 0f));
+
+        InitializePlatform(land_Prefab_4, ref last_Pos_Of_Bottom_Far_land_F4, land_Prefab_4.transform.position,
+                            start_Land_Tile - 7, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F4_Tiles,
+                            ref last_Order_Of_Bottom_Far_land_F4, new Vector3(1.6f, 0f, 0f));
+
+        InitializePlatform(land_Prefab_5, ref last_Pos_Of_Bottom_Far_land_F5, land_Prefab_5.transform.position,
+                            start_Land_Tile - 10, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F5_Tiles,
+                            ref last_Order_Of_Bottom_Far_land_F5, new Vector3(1.6f, 0f, 0f));
     }
 }
