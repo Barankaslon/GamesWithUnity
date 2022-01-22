@@ -274,7 +274,7 @@ public class MapGenerator : MonoBehaviour
                             ref last_Order_Of_Bottom_Far_land_F1, new Vector3(1.6f, 0f, 0f));
 
         InitializePlatform(land_Prefab_2, ref last_Pos_Of_Bottom_Far_land_F2, land_Prefab_2.transform.position,
-                            start_Land_Tile - 7, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F2_Tiles,
+                            start_Land_Tile - 3, bottom_Far_Side_Walk_Holder, ref bottom_Far_Land_F2_Tiles,
                             ref last_Order_Of_Bottom_Far_land_F2, new Vector3(1.6f, 0f, 0f));
 
         InitializePlatform(land_Prefab_3, ref last_Pos_Of_Bottom_Far_land_F3, land_Prefab_3.transform.position,
