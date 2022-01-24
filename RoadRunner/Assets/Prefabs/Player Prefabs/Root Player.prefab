@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8658800529358751161}
   - component: {fileID: 8658800529358751166}
+  - component: {fileID: 1914766331}
   m_Layer: 0
   m_Name: Root Player
   m_TagString: Untagged
@@ -53,6 +54,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1914766331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658800529358751167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963a70c5c9dfe884f91c065d05413995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8658800529909869828}
+  shadow: {fileID: 8658800530813530606}
+  first_PosOfPlayer: {x: -4.78, y: 1.93, z: 1}
+  second_PosOfPlayer: {x: -3.3, y: 2.93, z: 1}
+  player_Died: 0
+  player_Jumped: 0
 --- !u!1 &8658800529909869828
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +84,7 @@ GameObject:
   - component: {fileID: 8658800529909869830}
   - component: {fileID: 8658800529909869831}
   - component: {fileID: 8658800529909869824}
+  - component: {fileID: 4915881582976150050}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -183,6 +203,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4915881582976150050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658800529909869828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66686c317f7f9844fb44179412759dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8658800530813530606
 GameObject:
   m_ObjectHideFlags: 0

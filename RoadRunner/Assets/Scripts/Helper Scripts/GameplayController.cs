@@ -44,20 +44,29 @@ public class GameplayController : MonoBehaviour
         if(gameJustStarted)
         {
             //check if player is alive
-            if(moveSpeed < 12.0f)
+            if(!PlayerController.instance.player_Died)
             {
-                moveSpeed += Time.deltaTime * 5.0f;
+                if(moveSpeed < 12.0f)
+                {
+                    moveSpeed += Time.deltaTime * 5.0f;
+                }
+                else
+                {
+                    moveSpeed = 12.0f;
+                    gameJustStarted = false;
+                }
             }
-            else
-            {
-                moveSpeed = 12.0f;
-                gameJustStarted = false;
-            }
+
 
         }
 
         //check if player is alive
-        Camera.main.transform.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+        if(!PlayerController.instance.player_Died)
+        {
+            Camera.main.transform.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+            UpdateDistance();
+        }
+
 
     }
 
