@@ -22,4 +22,9 @@ public class AnimationEvents : MonoBehaviour
             PlayerController.instance.player_Jumped = false;
         }
     }
+
+    void AnimationEnded()
+    {
+        
+    }
 }

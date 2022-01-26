@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +10,11 @@ public class GameplayController : MonoBehaviour
     private float distance_Move;
     private bool gameJustStarted;
 
+    public GameObject obstacles_Obj;
+    public GameObject[] obstacle_List;
+    [HideInInspector] public bool obstacles_Is_Active;
+    private string Coroutine_Name = "SpawnObstacles";
+
     void Awake()
     {
         MakeInstance();
@@ -19,6 +23,8 @@ public class GameplayController : MonoBehaviour
     void Start()
     {
         gameJustStarted = true;
+        GetObstacles();
+        StartCoroutine(Coroutine_Name);
     }
 
     void Update()
@@ -84,6 +90,41 @@ public class GameplayController : MonoBehaviour
         else if(round >= 60.0f)
         {
             moveSpeed = 16f;
+        }
+    }
+
+    void GetObstacles()
+    {
+        obstacle_List = new GameObject[obstacles_Obj.transform.childCount];
+
+        for(int i = 0; i < obstacle_List.Length; i++)
+        {
+            obstacle_List[i] = obstacles_Obj.GetComponentsInChildren<ObstacleHolder>(true)[i].gameObject;
+        }
+    }
+
+    IEnumerator SpawnObstacles()
+    {
+        while(true)
+        {
+            if(!PlayerController.instance.player_Died)
+            {
+                if(!obstacles_Is_Active)
+                {
+                    if(Random.value <= 0.85f)
+                    {
+                        int randomIndex = 0;
+                        do
+                        {
+                            randomIndex = Mathf.RoundToInt(Random.Range(0.0f, obstacle_List.Length));
+                        }
+                        while(obstacle_List[randomIndex].activeInHierarchy);
+                        obstacle_List[randomIndex].SetActive(true);
+                        obstacles_Is_Active = true;
+                    }
+                }
+            }
+            yield return new WaitForSeconds(0.6f);
         }
     }
 }

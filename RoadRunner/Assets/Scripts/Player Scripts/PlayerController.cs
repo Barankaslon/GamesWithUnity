@@ -14,11 +14,17 @@ public class PlayerController : MonoBehaviour
     public Vector3 first_PosOfPlayer, second_PosOfPlayer;
     [HideInInspector] public bool player_Died;
     [HideInInspector] public bool player_Jumped;
+    public GameObject explosion;
+    private SpriteRenderer player_Renderer;
+    public Sprite TRex_Sprite, player_Sprite;
+    private bool TRex_Trigger;
+    private GameObject[] start_Effect;
 
     void Awake()
     {
         MakeInstance();
         anim = player.GetComponent<Animator>();
+        player_Renderer = player.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -66,6 +72,95 @@ public class PlayerController : MonoBehaviour
                 anim.Play(jump_Animation);
                 player_Jumped = true;
             }
+        }
+    }
+
+    void Die()
+    {
+        player_Died = true;
+        player.SetActive(false);
+        shadow.SetActive(false);
+
+        GameplayController.instance.moveSpeed = 0f;
+        //GameplayController.instance.GameOver();
+
+        //Play Sound Player Dead
+        //Play Sound GameOver
+    }
+
+    void DieWithObstacle(Collider2D target)
+    {
+        Die();
+        explosion.transform.position = target.transform.position;
+        explosion.SetActive(true);
+        target.gameObject.SetActive(false);
+
+        //sound manager play player_Dead_Sound
+    }
+
+    IEnumerator TRexDuration()
+    {
+        yield return new WaitForSeconds(7f);
+
+        if(TRex_Trigger)
+        {
+            TRex_Trigger = false;
+            player_Renderer.sprite = player_Sprite;
+        }
+    }
+
+    void DestroyObstacle(Collider2D target)
+    {
+        explosion.transform.position = target.transform.position;
+        explosion.SetActive(false); //turn off the explosion if its already turned on
+        explosion.SetActive(true);
+
+        target.gameObject.SetActive(false);
+
+        //SOUNDMANAGER
+    }
+
+    void OnTriggerEnter2D(Collider2D target) {
+        if(target.tag == TagManager.OBSTACLE)
+        {
+            if(!TRex_Trigger)
+            {
+                DieWithObstacle(target);
+            }
+            else
+            {
+                DestroyObstacle(target);
+            }
+        }
+
+        if(target.tag ==  TagManager.T_REX)
+        {
+            TRex_Trigger = true;
+            player_Renderer.sprite = TRex_Sprite;
+            target.gameObject.SetActive(false);
+
+            //Sound Manager to play the Music
+
+            StartCoroutine(TRexDuration());
+        }
+
+        if(target.tag == TagManager.STAR)
+        {
+            for(int i = 0; i < start_Effect.Length; i++)
+            {
+                if(!start_Effect[i].activeInHierarchy)
+                {
+                    start_Effect[i].transform.position = target.transform.position;
+                    start_Effect[i].SetActive(true);
+                    break;
+                }
+            }
+
+            target.gameObject.SetActive(false);
+
+
+            //SoundManager play Sound
+            //GamePlay controller increase star score
         }
     }
 }
