@@ -116,7 +116,7 @@ public class GameplayController : MonoBehaviour
                         int randomIndex = 0;
                         do
                         {
-                            randomIndex = Mathf.RoundToInt(Random.Range(0.0f, obstacle_List.Length));
+                            randomIndex = Random.Range(0, obstacle_List.Length);
                         }
                         while(obstacle_List[randomIndex].activeInHierarchy);
                         obstacle_List[randomIndex].SetActive(true);

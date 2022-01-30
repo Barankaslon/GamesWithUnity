@@ -25,12 +25,14 @@ public class PlayerController : MonoBehaviour
         MakeInstance();
         anim = player.GetComponent<Animator>();
         player_Renderer = player.GetComponent<SpriteRenderer>();
+        start_Effect = GameObject.FindGameObjectsWithTag(TagManager.STAR_EFFECT);
     }
 
     void Update()
     {
         HandleChangeLine();
         HandleJump();
+
     }
 
     void MakeInstance()
@@ -52,14 +54,14 @@ public class PlayerController : MonoBehaviour
             anim.Play(change_Line_Animation);
             transform.localPosition = second_PosOfPlayer;
 
-            // PLAY SOUND
+            SoundManager.instance.PlayMoveLineSound();
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             anim.Play(change_Line_Animation);
             transform.localPosition = first_PosOfPlayer;
 
-            // PLAY SOUND
+            SoundManager.instance.PlayMoveLineSound();
         }
     }
 
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour
             {
                 anim.Play(jump_Animation);
                 player_Jumped = true;
+                SoundManager.instance.PlayJumpSound();
             }
         }
     }
@@ -82,10 +85,11 @@ public class PlayerController : MonoBehaviour
         shadow.SetActive(false);
 
         GameplayController.instance.moveSpeed = 0f;
+        Debug.Log("Die");
         //GameplayController.instance.GameOver();
 
-        //Play Sound Player Dead
-        //Play Sound GameOver
+        SoundManager.instance.PlayDeadSound();
+        SoundManager.instance.PlayGameOverClip();
     }
 
     void DieWithObstacle(Collider2D target)
@@ -95,7 +99,7 @@ public class PlayerController : MonoBehaviour
         explosion.SetActive(true);
         target.gameObject.SetActive(false);
 
-        //sound manager play player_Dead_Sound
+        SoundManager.instance.PlayDeadSound();
     }
 
     IEnumerator TRexDuration()
@@ -117,7 +121,8 @@ public class PlayerController : MonoBehaviour
 
         target.gameObject.SetActive(false);
 
-        //SOUNDMANAGER
+        SoundManager.instance.PlayDeadSound();
+        explosion.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D target) {
@@ -139,7 +144,7 @@ public class PlayerController : MonoBehaviour
             player_Renderer.sprite = TRex_Sprite;
             target.gameObject.SetActive(false);
 
-            //Sound Manager to play the Music
+            SoundManager.instance.PlayPowerUpSound();
 
             StartCoroutine(TRexDuration());
         }
@@ -159,7 +164,7 @@ public class PlayerController : MonoBehaviour
             target.gameObject.SetActive(false);
 
 
-            //SoundManager play Sound
+            SoundManager.instance.PlayCoinSound();
             //GamePlay controller increase star score
         }
     }
