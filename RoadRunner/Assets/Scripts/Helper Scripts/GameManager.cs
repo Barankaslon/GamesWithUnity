@@ -19,6 +19,17 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         MakeSingleton();
+        InitializeGameData();
+    }
+
+    void Start()
+    {
+        print(Application.persistentDataPath + data_Path);
+
+        if(gameData != null)
+        {
+            print("Data LOADED");
+        }
     }
 
     void MakeSingleton()
@@ -31,6 +42,33 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    void InitializeGameData()
+    {
+        LoadGameData();
+        if(gameData == null)
+        {
+            star_Score = 0;
+            score_Count = 0;
+            selected_Index = 0;
+
+            heroes = new bool[9];
+            heroes[selected_Index] = true;
+
+            for(int i = 1; i < heroes.Length; i++)
+            {
+                heroes[i] = false;
+            }
+
+            gameData = new GameData();
+            gameData.StarScore = star_Score;
+            gameData.ScoreCount = score_Count;
+            gameData.Heroes = heroes;
+            gameData.SelectedIndex = selected_Index;
+
+            SaveGameData();
         }
     }
 
