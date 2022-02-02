@@ -11,9 +11,21 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip power_Up_Clip, die_Clip, coin_Clip, game_Over_Clip;
 
-    void Start()
+    void Awake()
     {
         MakeInstance();
+    }
+
+    void Start()
+    {
+        if(GameManager.instance.playSound)
+        {
+            background_Audio_Source.Play();
+        }
+        else
+        {
+            background_Audio_Source.Stop();
+        }
     }
 
     void MakeInstance()

@@ -28,6 +28,13 @@ public class PlayerController : MonoBehaviour
         start_Effect = GameObject.FindGameObjectsWithTag(TagManager.STAR_EFFECT);
     }
 
+    void Start()
+    {
+        string path = "Sprites/Player/hero" + GameManager.instance.selected_Index + "_big";
+        player_Sprite = Resources.Load<Sprite>(path);
+        player_Renderer.sprite = player_Sprite;
+    }
+
     void Update()
     {
         HandleChangeLine();
@@ -86,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         GameplayController.instance.moveSpeed = 0f;
         Debug.Log("Die");
-        //GameplayController.instance.GameOver();
+        GameplayController.instance.GameOver();
 
         SoundManager.instance.PlayDeadSound();
         SoundManager.instance.PlayGameOverClip();
@@ -166,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
             SoundManager.instance.PlayCoinSound();
             //GamePlay controller increase star score
+            GameplayController.instance.UpdateStarScore();
         }
     }
 }

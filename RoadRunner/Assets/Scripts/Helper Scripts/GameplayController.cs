@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameplayController : MonoBehaviour
 {
@@ -15,9 +17,21 @@ public class GameplayController : MonoBehaviour
     [HideInInspector] public bool obstacles_Is_Active;
     private string Coroutine_Name = "SpawnObstacles";
 
+    private Text score_Text;
+    private Text star_Score_Text;
+    private int  star_Score_Count, score_Count;
+    public GameObject pause_Panel;
+    public Animator pause_Anim;
+    public GameObject gameOver_Panel;
+    public Animator gameOver_Anim;
+    public Text final_Score_Text, best_Score_Text, final_Star_Score_Text;
+
     void Awake()
     {
         MakeInstance();
+
+        score_Text = GameObject.Find("Score Text").GetComponent<Text>();
+        star_Score_Text = GameObject.Find("Star Text").GetComponent<Text>();
     }
 
     void Start()
@@ -82,6 +96,8 @@ public class GameplayController : MonoBehaviour
         float round = Mathf.Round(distance_Move);
 
         //Count and show the score
+        score_Count = (int)round;
+        score_Text.text = round.ToString();
 
         if(round >= 30.0f && round < 60.0f)
         {
@@ -126,5 +142,55 @@ public class GameplayController : MonoBehaviour
             }
             yield return new WaitForSeconds(0.6f);
         }
+    }
+
+    public void UpdateStarScore()
+    {
+        star_Score_Count++;
+        star_Score_Text.text = star_Score_Count.ToString();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        pause_Panel.SetActive(true);
+        pause_Anim.Play("SlideIn");
+    }
+
+    public void ResumeGame()
+    {
+        pause_Anim.Play("SlideOut");
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("GamePlay");
+    }
+
+    public void HomeButton()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");       
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("GameOver");
+        Time.timeScale = 0f;
+        gameOver_Panel.SetActive(true);
+        gameOver_Anim.Play("SlideIn");
+
+        final_Score_Text.text = score_Count.ToString();
+        final_Star_Score_Text.text = star_Score_Count.ToString();
+
+        if(GameManager.instance.score_Count < score_Count)
+        {
+            GameManager.instance.score_Count = score_Count;
+        }
+
+        best_Score_Text.text = GameManager.instance.score_Count.ToString();
+        GameManager.instance.star_Score += star_Score_Count;
+        GameManager.instance.SaveGameData();
     }
 }
