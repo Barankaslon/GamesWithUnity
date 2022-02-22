@@ -51,7 +51,27 @@ ModelImporter:
   - first:
       74: 6991620038578847836
     second: Head|Robot_Jump2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EyeLight
+    second: {fileID: 2100000, guid: d700f0054fe112c41b7118e9da0ffba3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 93c6e8215b91371438edcfa100a63eac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main
+    second: {fileID: 2100000, guid: e8722f7b6ef8a1a4d9305084b76a2e8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Secondary
+    second: {fileID: 2100000, guid: a108049347fce9747903e5ccce7f272f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
