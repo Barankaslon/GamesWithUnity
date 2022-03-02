@@ -123,6 +123,76 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &111188988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1792905732325937638, guid: 682c269ee9be944bab8bb71e15c8d271, type: 3}
+  m_PrefabInstance: {fileID: 2136680762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &111188990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111188988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f9778d05b8f4a4389b271d2155c594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDistance: 3.5
+  fallPower: 6
+  idleDuration: 1
+  resetDuration: 2
+  minIdleDuration: 1
+  maxIdleDuration: 2
+--- !u!114 &111188992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111188988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1055bc8137649e24998d354b47c14c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &234408545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5323299714316049531, guid: 682c269ee9be944bab8bb71e15c8d271, type: 3}
+  m_PrefabInstance: {fileID: 2136680762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &234408547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234408545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f9778d05b8f4a4389b271d2155c594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDistance: 3.5
+  fallPower: 6
+  idleDuration: 1
+  resetDuration: 2
+  minIdleDuration: 1
+  maxIdleDuration: 2
+--- !u!114 &234408549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234408545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1055bc8137649e24998d354b47c14c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382079302
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +569,8 @@ GameObject:
   - component: {fileID: 1729440802}
   - component: {fileID: 1729440803}
   - component: {fileID: 1729440804}
+  - component: {fileID: 1729440806}
+  - component: {fileID: 1729440805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -560,6 +632,42 @@ MonoBehaviour:
   cameraTransform: {fileID: 963194228}
   minCameraXRotationAngle: -50
   maxCameraXRotationAngle: 50
+--- !u!114 &1729440805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729440801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43e14f863edde54892e19b772e399fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementnSpeed: 5
+  gravityScale: -40
+  jumpHeight: 5
+  groundCheckTransform: {fileID: 0}
+  groundCheckRadius: 0.2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpButton: Jump
+  model: {fileID: 0}
+  rotateSpeed: 5
+--- !u!114 &1729440806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729440801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d01f0e38266058409f342d5771a7338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1239132911}
 --- !u!1001 &2136680762
 PrefabInstance:
   m_ObjectHideFlags: 0

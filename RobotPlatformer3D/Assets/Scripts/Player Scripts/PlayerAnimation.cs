@@ -10,8 +10,8 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetFloat(TagManager.RUN_ANIMATION_PARAMETER, speed);
     }
 
-        public void Play_Jump(bool isGrounded)
+        public void Play_Jump(bool grounded)
     {
-        anim.SetBool(TagManager.JUMP_ANIMATION_PARAMETER, isGrounded);
+        anim.SetBool(TagManager.JUMP_ANIMATION_PARAMETER, grounded);
     }
 }

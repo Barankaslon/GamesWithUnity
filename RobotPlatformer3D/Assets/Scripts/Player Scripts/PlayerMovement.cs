@@ -22,16 +22,39 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 movementDirection;
     private Vector3 verticalVelocity;
-    private bool canDoubleJump;
-    private bool isGrounded;
+    private bool _canDoubleJump;
+    private bool _isGrounded;
 
     public bool CanDoubleJump
     {
         get
-        { return canDoubleJump; }
+        { return _canDoubleJump; }
         set
         {
-            { canDoubleJump = value; }
+            { _canDoubleJump = value; }
         }
+    }
+
+        public bool IsGrounded
+    {
+        get
+        { return _isGrounded; }
+        set
+        {
+            { _isGrounded = value; }
+        }
+    }
+
+    private PlayerAnimation playerAnim;
+
+    [SerializeField] private GameObject model;
+    private Camera mainCam;
+    [SerializeField] private float rotateSpeed = 5f;
+
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+        mainCam = Camera.main;
+        playerAnim = GetComponent<PlayerAnimation>();
     }
 }
