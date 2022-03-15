@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    private bool isDeathZone;
+    [SerializeField] private bool isDeathZone;
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(TagManager.PLAYER_TAG))
         {
-
             if(isDeathZone)
             {
 
