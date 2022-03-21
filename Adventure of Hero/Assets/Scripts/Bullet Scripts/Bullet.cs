@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
 
         if(collision.CompareTag(TagManager.BLOCKING_TAG))
         {
-
+            
         }
     }
 }

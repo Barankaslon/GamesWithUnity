@@ -313,7 +313,11 @@ MonoBehaviour:
   - {fileID: 1293428519}
   - {fileID: 1164499089}
   - {fileID: 778847581}
-  weapoonBullets: []
+  weaponBullets:
+  - {fileID: 5692705290160211914, guid: e1aa1c4013db5e14a896c0f18652aba8, type: 3}
+  - {fileID: 8380105810442732871, guid: e43d1fde766e95d47ad5f618a05cc2f8, type: 3}
+  - {fileID: 4296005372913948124, guid: b16fb684d37df564e95629cb6bebd681, type: 3}
+  - {fileID: 1112011123060025320, guid: c94f8fdaeb110844a9847d9db70a232f, type: 3}
 --- !u!114 &61563134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,7 +2064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118415217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.057, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 61563131}

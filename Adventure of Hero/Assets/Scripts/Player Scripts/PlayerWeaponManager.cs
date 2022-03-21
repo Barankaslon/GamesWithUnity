@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerWeaponManager : MonoBehaviour
 {
     [SerializeField] private WeaponManager[] playerWeapons;
-    [SerializeField] private GameObject[] weapoonBullets;
+    [SerializeField] private GameObject[] weaponBullets;
 
     private Vector2 targetPos;
     private Vector2 direction;
@@ -49,10 +49,10 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         targetPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         bulletSpawnPosition = new Vector2(spawnPos.x, spawnPos.y);
-        direction = (targetPos - bulletSpawnPosition.normalized);
+        direction = (targetPos - bulletSpawnPosition).normalized;
         bulletRotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
 
-        GameObject newBullet = Instantiate(weapoonBullets[weaponIndex], spawnPos, bulletRotation);
+        GameObject newBullet = Instantiate(weaponBullets[weaponIndex], spawnPos, bulletRotation);
         newBullet.GetComponent<Bullet>().MoveInDirection(direction);
     }
 
