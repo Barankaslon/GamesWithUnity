@@ -19,8 +19,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void LateUpdate() 
-    {
-        
+    {        
         if(!playerTarget)
             return;
 

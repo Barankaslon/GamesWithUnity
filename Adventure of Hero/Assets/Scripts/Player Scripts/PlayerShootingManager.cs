@@ -6,6 +6,7 @@ public class PlayerShootingManager : MonoBehaviour
 {
 [SerializeField] private float shootingTimerLimit = 0.2f;
 [SerializeField] private Transform bulletSpawnPos;
+private Animator shootingAnimation;
 
 private PlayerWeaponManager playerWeaponManager;
 private float shootingTimer;

@@ -11,6 +11,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float deactivateTimer = 3f;
     [SerializeField] private bool destroyObj;
 
+    private Animator anim;
+    private SpriteRenderer sr;
+    private Sprite bulletSprite;
+    //private Color initialColor;
+
     private bool deathDamage;
 
 
@@ -18,10 +23,25 @@ public class Bullet : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
 
-        // get Anim
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        bulletSprite = sr.sprite;
+    }
+
+    private void OnEnable()
+    {
+        anim.SetBool(TagManager.EXPLODE_ANIMATION_PARAMETER, false);
+        anim.enabled = false;
+        sr.sprite = bulletSprite;
+
+        deathDamage = false;
 
         Invoke("DeactivateBullet", deactivateTimer);
+    }
 
+    private void OnDisable() 
+    {
+        myBody.velocity = Vector2.zero;
     }
 
     public void MoveInDirection(Vector3 direction)
@@ -43,12 +63,23 @@ public class Bullet : MonoBehaviour
             collision.CompareTag(TagManager.SHOOTER_ENEMY_TAG) || 
             collision.CompareTag(TagManager.BOSS_TAG))
         {
+            myBody.velocity = Vector2.zero;
+            CancelInvoke("DeactivateBullet");
+            anim.enabled = true;
+            anim.SetBool(TagManager.EXPLODE_ANIMATION_PARAMETER, true);
 
+            if(!deathDamage)
+                {
+                    deathDamage = true;
+                }
         }
 
         if(collision.CompareTag(TagManager.BLOCKING_TAG))
         {
-            
+            myBody.velocity = Vector2.zero;
+            CancelInvoke("DeactivateBullet");
+            anim.enabled = true;
+            anim.SetBool(TagManager.EXPLODE_ANIMATION_PARAMETER, true);
         }
     }
 }

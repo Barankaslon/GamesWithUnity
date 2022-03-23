@@ -52,8 +52,10 @@ public class PlayerWeaponManager : MonoBehaviour
         direction = (targetPos - bulletSpawnPosition).normalized;
         bulletRotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
 
-        GameObject newBullet = Instantiate(weaponBullets[weaponIndex], spawnPos, bulletRotation);
-        newBullet.GetComponent<Bullet>().MoveInDirection(direction);
+        BulletPool.instance.FireBullet(weaponIndex, spawnPos, bulletRotation, direction);
+
+        //GameObject newBullet = Instantiate(weaponBullets[weaponIndex], spawnPos, bulletRotation);
+        //newBullet.GetComponent<Bullet>().MoveInDirection(direction);
     }
 
 }
